@@ -11,13 +11,15 @@
                                from secondPart in words
                                where firstPart.Length + secondPart.Length == 6
                                select new { firstPart, secondPart };
-
-            foreach (var combination in combinations)
+            using (StreamWriter writer = File.CreateText(@"..\..\..\Result.txt"))
             {
-                string resultWord = combination.firstPart + combination.secondPart;
-                if(words.Contains(resultWord))
+                foreach (var combination in combinations.Distinct())
                 {
-                    Console.WriteLine($"{combination.firstPart}+{combination.secondPart}={resultWord}");
+                    string resultWord = combination.firstPart + combination.secondPart;
+                    if (words.Contains(resultWord))
+                    {
+                        writer.WriteLine($"{combination.firstPart}+{combination.secondPart}={resultWord}");
+                    }
                 }
             }
 
