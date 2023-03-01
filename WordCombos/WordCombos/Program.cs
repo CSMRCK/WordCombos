@@ -6,6 +6,8 @@ namespace WordCombos
     {
         static void Main(string[] args)
         {
+            //No need in try/cathes for file opening since this stuff is just for us :)
+
             string inputFilePath = @"..\..\..\6letters (1).txt";
             string outputFilePath = @"..\..\..\Result.txt";
             string[] words = File.ReadAllLines(inputFilePath);
@@ -27,6 +29,7 @@ namespace WordCombos
                 }
             }
 
+            //Sorry for a Linux/IOS guys, don`t think this code will work
             Process.Start("notepad.exe", outputFilePath);
         }
     }
