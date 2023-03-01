@@ -12,6 +12,14 @@
                                where firstPart.Length + secondPart.Length == 6
                                select new { firstPart, secondPart };
 
+            foreach (var combination in combinations)
+            {
+                string resultWord = combination.firstPart + combination.secondPart;
+                if(words.Contains(resultWord))
+                {
+                    Console.WriteLine($"{combination.firstPart}+{combination.secondPart}={resultWord}");
+                }
+            }
 
         }
     }
